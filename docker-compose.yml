@@ -31,6 +31,8 @@ services:
     build:
       context: ${DOCKER_ETC}
       dockerfile: ${DOCKER_CONSOLE}
+      args:
+        APP_USER: ${APP_USER}
     image: console
     container_name: console
     volumes:

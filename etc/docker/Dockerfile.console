@@ -2,6 +2,8 @@ FROM alpine:latest
 
 Maintainer Cesar Gaspar <rasec.rapsag@gmail.com>
 
+ARG APP_USER
+
 RUN apk --update add curl mongodb npm \
 	php7 php7-curl php7-phar php7-json php7-openssl php7-xml \
 	php7-xmlwriter php7-mbstring php7-dom php7-tokenizer php7-mongodb && \
@@ -12,11 +14,10 @@ RUN apk --update add curl mongodb npm \
 COPY ./bin/* /usr/local/bin/
 
 RUN mkdir -p /code && \
-	adduser -D cgaspar && \
+	adduser -D ${APP_USER} && \
 	chmod 755 /usr/local/bin/*
 
 WORKDIR /code
-
 
 CMD ["/bin/sh"]
 
