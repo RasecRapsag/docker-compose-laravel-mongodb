@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo 'Aguarde a criação dos arquivos do projeto...'
+
+# Cria o projeto no diretório atual
+cd /code
+composer create-project --prefer-dist laravel/laravel .

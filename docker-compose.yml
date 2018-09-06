@@ -11,15 +11,15 @@ services:
       - ${NGINX_CONF}:/etc/nginx/conf.d/default.conf
   php:
     build:
-      context: ${APP_ETC}
-      dockerfile: Dockerfile.php-fpm
+      context: ${DOCKER_ETC}
+      dockerfile: ${DOCKER_PHP}
     image: php-mongo
     container_name: php
     volumes:
       - ${APP_DIR}:/var/www/html
   db:
     image: mongo:${MONGO_VERSION}
-    container_name: db
+    container_name: ${MONGO_NAME}
     ports:
       - ${MONGO_PORT}:27017
     environment:
@@ -29,8 +29,8 @@ services:
       - ${MONGO_DATA}:/data/db
   console:
     build:
-      context: ${APP_ETC}
-      dockerfile: Dockerfile.alpine
+      context: ${DOCKER_ETC}
+      dockerfile: ${DOCKER_CONSOLE}
     image: console
     container_name: console
     volumes:
