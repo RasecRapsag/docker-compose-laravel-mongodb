@@ -18,13 +18,23 @@ services:
     volumes:
       - ${APP_DIR}:/var/www/html
   db:
-    image: mongo:latest
+    image: mongo:${MONGO_VERSION}
     container_name: db
-#    environment:
-#      - MONGO_DATA_DIR=/data/db
-#      - MONGO_LOG_DIR=/dev/null
-#    volumes:
-#      - ./data:/data/db
-#    ports:
-#      - 27017:27017
-#    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    ports:
+      - ${MONGO_PORT}:27017
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ${MONGO_DATA}:/data/db
+  console:
+    build:
+      context: ${APP_ETC}
+      dockerfile: Dockerfile.alpine
+    image: console
+    container_name: console
+    volumes:
+      - ${APP_DIR}:/code
+    user: ${APP_USER}
+    stdin_open: true
+    tty: true
