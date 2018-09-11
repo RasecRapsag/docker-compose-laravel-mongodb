@@ -10,20 +10,33 @@ Criação de um ambiente para de desenvolvimento utilizando:
 * [Laravel](https://laravel.com)
 * [MongoDB](https://www.mongodb.com)
 
+
 Para criação do nosso ambiente, será necessário que o Docker e o Docker Compose estejam instalados no nosso sistema Linux.
+
 
 ### Instalação Docker
 
 ```bash
-# curl -fsSl https://get.docker.com | bash
+$ sudo curl -fsSl https://get.docker.com | bash
 ```
+
 
 ### Instalação Docker Compose
 
 ```bash
-# curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-# chmod 755 /usr/local/bin/docker-compose
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod 755 /usr/local/bin/docker-compose
 ```
+
+
+### Clonando repositório
+
+```bash
+$ mkdir ~/App && cd ~/App
+$ git clone https://github.com/RasecRapsag/docker-compose-laravel-mongodb
+$ cd docker-compose-laravel-mongodb/
+```
+
 
 ### Configurando ambiente
 
@@ -69,6 +82,14 @@ Define a porta de acesso ao mongodb.
 - MONGO_DATA
 
 Define a pasta onde ficarão os arquivos do MongoDB.
+
+
+### Subindo os serviços
+
+```bash
+$ docker-compose up -d
+```
+
 
 
 ## Comandos
@@ -117,9 +138,11 @@ $ make console
 ```
 
 
+
 ## Comandos no console
 
-Dentro do console podemos utilizar alguns comandos, abaixo temos alguns:
+Dentro do console podemos utilizar alguns comandos, abaixo temos alguns exemplos:
+
 
 - Cria um projeto Laravel no diretório /code que foi definido em APP_DIR
 
