@@ -6,7 +6,7 @@ ARG APP_USER
 
 RUN apk --update add curl mongodb mongodb-tools npm \
 	php7 php7-curl php7-phar php7-json php7-openssl php7-xml php7-session \
-	php7-xmlwriter php7-mbstring php7-dom php7-tokenizer php7-mongodb && \
+	php7-xmlwriter php7-mbstring php7-dom php7-tokenizer php7-mongodb php7-fileinfo && \
 	rm /var/cache/apk/* && \
 	curl -sS https://getcomposer.org/installer | \
 	php -- --install-dir=/usr/bin --filename=composer
