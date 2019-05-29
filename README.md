@@ -173,3 +173,9 @@ $ composer require "laravelcollective/html":"^5.4.0"
 ```bash
 $ npm install vuex
 ```
+
+- Utilizando o Controlador de Versão Git
+
+```bash
+$ git init
+```
