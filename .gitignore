@@ -1,5 +1,5 @@
 data/
 docker.sublime*
 code/
-home/
+.home/
 .DS_Store

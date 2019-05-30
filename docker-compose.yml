@@ -37,7 +37,7 @@ services:
     container_name: console
     volumes:
       - ${APP_DIR}:/code
-      - ./home:/home/${APP_USER}
+      - ./.home:/home/${APP_USER}
     user: ${APP_USER}
     stdin_open: true
     tty: true
