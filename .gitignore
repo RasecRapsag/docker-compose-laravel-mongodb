@@ -2,3 +2,4 @@ data/
 docker.sublime*
 code/
 home/
+.DS_Store
